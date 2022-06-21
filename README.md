@@ -16,4 +16,4 @@
 
 ### Microfrontend Architecture
 
-![pokedex mfe](https://raw.githubusercontent.com/shaarang1010/mfe-swimapp/main/pokedex-mfe.jpg)
+![pokedex mfe](https://raw.githubusercontent.com/shaarang1010/mfe-pokedex/main/pokedex-mfe.jpg)
