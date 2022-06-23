@@ -1,32 +1,81 @@
 lockfileVersion: 5.4
 
-specifiers:
-  '@graphql-codegen/typescript-react-query': ^3.5.14
-  '@types/react': ^18.0.0
-  '@types/react-dom': ^18.0.0
-  '@vitejs/plugin-react': ^1.3.0
-  graphql: ^16.5.0
-  graphql-request: ^4.3.0
-  react: ^18.0.0
-  react-dom: ^18.0.0
-  react-query: ^3.39.1
-  typescript: ^4.6.3
-  vite: ^2.9.9
+importers:
 
-dependencies:
-  '@graphql-codegen/typescript-react-query': 3.5.14_graphql@16.5.0
-  graphql: 16.5.0
-  graphql-request: 4.3.0_graphql@16.5.0
-  react: 18.2.0
-  react-dom: 18.2.0_react@18.2.0
-  react-query: 3.39.1_biqbaboplfbrettd7655fr4n2y
+  .:
+    specifiers:
+      '@graphql-codegen/typescript-react-query': ^3.5.14
+      '@types/react': ^18.0.0
+      '@types/react-dom': ^18.0.0
+      '@vitejs/plugin-react': ^1.3.0
+      graphql: ^16.5.0
+      graphql-request: ^4.3.0
+      react: ^18.0.0
+      react-dom: ^18.0.0
+      react-query: ^3.39.1
+      typescript: ^4.6.3
+      vite: ^2.9.9
+    dependencies:
+      '@graphql-codegen/typescript-react-query': 3.5.14_graphql@16.5.0
+      graphql: 16.5.0
+      graphql-request: 4.3.0_graphql@16.5.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-query: 3.39.1_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@types/react': 18.0.12
+      '@types/react-dom': 18.0.5
+      '@vitejs/plugin-react': 1.3.2
+      typescript: 4.7.3
+      vite: 2.9.12
 
-devDependencies:
-  '@types/react': 18.0.12
-  '@types/react-dom': 18.0.5
-  '@vitejs/plugin-react': 1.3.2
-  typescript: 4.7.3
-  vite: 2.9.12
+  packages/main:
+    specifiers:
+      '@graphql-codegen/typescript-react-query': ^3.5.14
+      '@types/react': ^18.0.0
+      '@types/react-dom': ^18.0.0
+      '@vitejs/plugin-react': ^1.3.0
+      graphql: ^16.5.0
+      graphql-request: ^4.3.0
+      react: ^18.0.0
+      react-dom: ^18.0.0
+      react-query: ^3.39.1
+      typescript: ^4.6.3
+      vite: ^2.9.9
+    dependencies:
+      '@graphql-codegen/typescript-react-query': 3.5.14_graphql@16.5.0
+      graphql: 16.5.0
+      graphql-request: 4.3.0_graphql@16.5.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-query: 3.39.1_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@types/react': 18.0.12
+      '@types/react-dom': 18.0.5
+      '@vitejs/plugin-react': 1.3.2
+      typescript: 4.7.3
+      vite: 2.9.12
+
+  packages/mfe-signup:
+    specifiers:
+      '@types/react': ^18.0.0
+      '@types/react-dom': ^18.0.0
+      '@vitejs/plugin-react': ^1.3.0
+      main: link:..\main
+      react: ^18.0.0
+      react-dom: ^18.0.0
+      typescript: ^4.6.3
+      vite: ^2.9.9
+    dependencies:
+      main: link:../main
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    devDependencies:
+      '@types/react': 18.0.12
+      '@types/react-dom': 18.0.5
+      '@vitejs/plugin-react': 1.3.2
+      typescript: 4.7.3
+      vite: 2.9.12
 
 packages:
 

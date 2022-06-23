@@ -1,11 +1,7 @@
 {
-  "name": "mfe-pokedex",
+  "name": "mfe-main",
   "private": true,
   "version": "0.0.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
