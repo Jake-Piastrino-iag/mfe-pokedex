@@ -8,7 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "main": "link:..\\main",
+    "formik": "^2.2.9",
+    "mfe-ui-components": "workspace:*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
