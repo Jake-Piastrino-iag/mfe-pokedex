@@ -4,7 +4,7 @@ type ButtonProps = {
   size: "xs" | "sm" | "md" | "wide";
   color: "primary" | "secondary" | "ghost" | "link";
   text: string;
-  onClickHandler(): React.MouseEvent<HTMLInputElement>;
+  onClickHandler?(): React.MouseEvent<HTMLInputElement>;
 };
 
 export const Button: React.FC<ButtonProps> = ({

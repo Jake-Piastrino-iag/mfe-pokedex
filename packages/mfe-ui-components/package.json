@@ -2,6 +2,7 @@
   "name": "mfe-ui-components",
   "private": true,
   "version": "0.1.0",
+  "main": "src/main.tsx",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
