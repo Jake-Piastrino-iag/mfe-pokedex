@@ -30,8 +30,9 @@ export const SignUpPage = () => {
 
   return (
     <Hero
-      heading={isSignUp ? "SignUp here" : "Login"}
+      heading={isSignUp ? "Sign-up to be a pokemon trainer" : "Login to check your stats"}
       info={isSignUp ? "Choose an avatar and get started" : "Log back in"}
+      toggleHandler={() => setSignUp(!isSignUp)}
     >
       {isSignUp && (
         <SignUpForm
@@ -57,7 +58,6 @@ export const SignUpPage = () => {
           onLoginHandler={() => console.log("login")}
         />
       )}
-      <div className="flex justify-center">Login instead</div>
     </Hero>
   );
 };

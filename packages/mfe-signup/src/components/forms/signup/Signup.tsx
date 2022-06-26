@@ -37,7 +37,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
               <img src={avatar} />
             </div>
           </div>
-          <div className="form-control w-1/2 mt-6">
+          <div className="form-control w-1/2 mt-6 ml-3">
             <button className="btn btn-primary" onClick={updateAvatar}>
               Get different avatar
             </button>
