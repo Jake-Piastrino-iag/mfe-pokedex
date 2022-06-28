@@ -10,6 +10,8 @@
 
 - [zustand](https://zustand-demo.pmnd.rs/)
 
+- [upstash-Redis](https://upstash.com/)
+
 - [React-query](https://react-query.tanstack.com/)
 
 - [Pokemon graphql](https://github.com/favware/graphql-pokemon)

@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Hero } from "mfe-ui-components";
 import { SignUpForm } from "../../components/forms/signup/Signup";
 import { LoginForm } from "../../components/forms/login/Login";
+import { hashedPassword } from "../../utils/hashPassword";
 
 export const SignUpPage = () => {
   const [isSignUp, setSignUp] = useState(true);
@@ -36,6 +37,17 @@ export const SignUpPage = () => {
     setAvatar(`https://avatars.dicebear.com/api/adventurer/:${getRandomNumbers()}.svg`);
   };
 
+  const onUserSignUpHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const userData = {
+      characterName,
+      avatar,
+      password: hashedPassword(password),
+      email
+    };
+    console.log(userData);
+  };
+
   return (
     <Hero
       heading={isSignUp ? "Sign-up to be a pokemon trainer" : "Login to check your stats"}
@@ -54,7 +66,7 @@ export const SignUpPage = () => {
           updateAvatar={updateAvatarHandler}
           reEnterPassword={retypePassword}
           reTypedPassword={(e) => onChangeHandler(e, "RETYPE-PASSWORD")}
-          onFormActionHandler={() => {}}
+          onFormActionHandler={onUserSignUpHandler}
         />
       )}
       {!isSignUp && (
