@@ -45,7 +45,6 @@ export const SignUpPage = () => {
       password: hashedPassword(password),
       email
     };
-    console.log(userData);
   };
 
   return (
@@ -57,15 +56,15 @@ export const SignUpPage = () => {
       {isSignUp && (
         <SignUpForm
           characterName={characterName}
-          updateCharacterName={(e) => onChangeHandler(e, "CHARACTER")}
+          updateCharacterName={(e) => setCharacterName(e.target.value)}
           password={password}
-          updatePassword={(e) => onChangeHandler(e, "CHARACTER")}
+          updatePassword={(e) => setPassword(e.target.value)}
           email={email}
-          updateEmail={(e) => onChangeHandler(e, "CHARACTER")}
+          updateEmail={(e) => setEmail(e.target.value)}
           avatar={avatar}
           updateAvatar={updateAvatarHandler}
           reEnterPassword={retypePassword}
-          reTypedPassword={(e) => onChangeHandler(e, "RETYPE-PASSWORD")}
+          reTypedPassword={(e) => setRetypePassword(e.target.value)}
           onFormActionHandler={onUserSignUpHandler}
         />
       )}

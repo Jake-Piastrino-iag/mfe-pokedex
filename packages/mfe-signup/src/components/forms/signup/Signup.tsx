@@ -11,10 +11,9 @@ type SignUpFormProps = {
   updatePassword(e: React.ChangeEvent<HTMLInputElement>): void;
   reEnterPassword: string;
   reTypedPassword(e: React.ChangeEvent<HTMLInputElement>): void;
-  onFormActionHandler(): void;
+  onFormActionHandler(e: React.MouseEvent<HTMLButtonElement>): void;
 };
 
-//"https://avatars.dicebear.com/api/adventurer/:seed.svg"
 export const SignUpForm: React.FC<SignUpFormProps> = ({
   characterName,
   updateAvatar,
@@ -59,9 +58,8 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
             <span className="label-text">Email</span>
           </label>
           <input
-            type="text"
+            type="email"
             placeholder="email"
-            value={email}
             className="input w-full max-w-xs  input-accent"
             onChange={updateEmail}
           />
@@ -71,17 +69,16 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
             <span className="label-text">Password</span>
           </label>
           <input
-            type="text"
+            type="password"
             placeholder="password"
             className="input  w-full max-w-xs input-accent"
-            value={password}
             onChange={updatePassword}
           />
           <label className="label">
             <span className="label-text"> Re-type Password</span>
           </label>
           <input
-            type="text"
+            type="password"
             placeholder="Retype password"
             className="input  w-full max-w-xs input-accent"
             value={reEnterPassword}
