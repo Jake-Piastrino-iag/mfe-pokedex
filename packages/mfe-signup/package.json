@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "formik": "^2.2.9",
     "mfe-ui-components": "workspace:*",
     "react": "^18.0.0",

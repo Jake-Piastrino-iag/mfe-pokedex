@@ -8,7 +8,7 @@ export const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [retypePassword, setRetypePassword] = useState("");
-  const [avatar, setAvatar] = useState("");
+  const [avatar, setAvatar] = useState("https://avatars.dicebear.com/api/adventurer/:seed.svg");
   const [characterName, setCharacterName] = useState("Ash Ketchum");
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>, type: string) => {
@@ -28,6 +28,14 @@ export const SignUpPage = () => {
     }
   };
 
+  const getRandomNumbers = () => {
+    return Math.floor(Math.random() * (400 - 0 + 1) + 0);
+  };
+
+  const updateAvatarHandler = () => {
+    setAvatar(`https://avatars.dicebear.com/api/adventurer/:${getRandomNumbers()}.svg`);
+  };
+
   return (
     <Hero
       heading={isSignUp ? "Sign-up to be a pokemon trainer" : "Login to check your stats"}
@@ -43,7 +51,7 @@ export const SignUpPage = () => {
           email={email}
           updateEmail={(e) => onChangeHandler(e, "CHARACTER")}
           avatar={avatar}
-          updateAvatar={(e) => console.log("avatar")}
+          updateAvatar={updateAvatarHandler}
           reEnterPassword={retypePassword}
           reTypedPassword={(e) => onChangeHandler(e, "RETYPE-PASSWORD")}
           onFormActionHandler={() => {}}
