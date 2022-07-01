@@ -2,8 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 
-import { dependencies, devDependencies } from "./package.json";
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -15,7 +13,12 @@ export default defineConfig({
         "./Signup": "./src/pages/Signup.tsx"
       },
       remotes: {},
-      shared: ["react", dependencies]
+      shared: ["react"]
     })
-  ]
+  ],
+  build: {
+    target: "esnext",
+    minify: false,
+    cssCodeSplit: false
+  }
 });
