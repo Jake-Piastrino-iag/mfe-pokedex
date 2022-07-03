@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Hero } from "mfe-ui-components";
-import { SignUpForm } from "../components/forms/signup/Signup";
-import { LoginForm } from "../components/forms/login/Login";
-import { hashedPassword } from "../utils/hashPassword";
+import { SignUpForm } from "../../components/forms/signup/Signup";
+import { LoginForm } from "../../components/forms/login/Login";
+import { hashedPassword } from "../../utils/hashPassword";
 
 export const SignUpPage = () => {
   const [isSignUp, setSignUp] = useState(true);
