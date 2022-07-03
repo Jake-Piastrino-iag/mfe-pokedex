@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./App";
-import "mfe-ui-components/dist/output.css";
+import App from "./App";
 
 ReactDOM.render(<App />, document.getElementById("root"));

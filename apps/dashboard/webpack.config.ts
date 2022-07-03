@@ -6,11 +6,10 @@ const { ModuleFederationPlugin } = container;
 
 export default {
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
-    fallback: { crypto: require.resolve("crypto-browserify"), stream: require.resolve("stream-browserify") }
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"]
   },
   devServer: {
-    port: 8081
+    port: 8082
   },
   module: {
     rules: [
@@ -28,9 +27,11 @@ export default {
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "mfe_forms",
+      name: "microfrontend",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        mfe_forms: "mfe_forms@http://localhost:8081/remoteEntry.js"
+      },
       exposes: {
         "./App": "./src/App"
       },
