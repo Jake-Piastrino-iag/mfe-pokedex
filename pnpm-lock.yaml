@@ -39,6 +39,7 @@ importers:
       mfe-ui-components: workspace:*
       react: ^18.0.0
       react-dom: ^18.0.0
+      react-query: ^3.39.1
       style-loader: ^3.3.1
       ts-loader: ^9.2.6
       ts-node: ^10.4.0
@@ -49,6 +50,7 @@ importers:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-query: 3.39.1_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@types/react': 18.0.14
       '@types/react-dom': 18.0.5
