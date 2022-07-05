@@ -6,7 +6,7 @@ import { AppHeader } from "../components/header/Header";
 import { UserContext } from "../context/UserContext/UserContext";
 import { AppContext } from "../context/AppContext/AppContext";
 
-const Dashboard = () => {
+export const Dashboard = () => {
   const { characterName, avatarUrl, pokemons, setPokemons } = useContext(UserContext);
   const { showFederatedComponents, setShowFederatedComponents } = useContext(AppContext);
 
