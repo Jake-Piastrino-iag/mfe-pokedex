@@ -4,5 +4,6 @@ import { CardComponent } from "./components/card/Card";
 import { Hero } from "./components/hero/Hero";
 import { NavBar } from "./components/navbar/Navbar";
 import { Container } from "./components/container/Container";
+import { Footer } from "./components/footer/Footer";
 
-export { Button, CardComponent, Hero, NavBar, Container };
+export { Button, CardComponent, Hero, NavBar, Container, Footer };

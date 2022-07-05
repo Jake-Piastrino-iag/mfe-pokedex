@@ -9,7 +9,7 @@ export default {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"]
   },
   devServer: {
-    port: 8082
+    port: 8083
   },
   module: {
     rules: [

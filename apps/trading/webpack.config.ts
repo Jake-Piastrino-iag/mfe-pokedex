@@ -6,43 +6,43 @@ const { ModuleFederationPlugin } = container;
 
 export default {
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"]
   },
   devServer: {
-    port: 8081,
+    port: 8084
   },
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        loader: "ts-loader",
-      },
-    ],
+        loader: "ts-loader"
+      }
+    ]
   },
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "microfrontend",
+      name: "trading-app",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./App": "./src/App",
+        "./App": "./src/App"
       },
       shared: {
         ...dependencies,
         react: {
           singleton: true,
-          requiredVersion: dependencies.react,
+          requiredVersion: dependencies.react
         },
         "react-dom": {
           singleton: true,
-          requiredVersion: dependencies["react-dom"],
-        },
-      },
+          requiredVersion: dependencies["react-dom"]
+        }
+      }
     }),
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-    }),
-  ],
+      template: "./src/index.html"
+    })
+  ]
 };

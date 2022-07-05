@@ -4,7 +4,7 @@ import { NavBar } from "mfe-ui-components";
 
 import { SubMenu } from "./SubMenu";
 
-type HeaderProps = {
+export type HeaderProps = {
   navbarText: string;
   selectedNumber?: number;
   onSelectedHandler(): void;
@@ -13,6 +13,6 @@ type HeaderProps = {
   navProfleOptions?: React.ReactNode;
 };
 
-export const Header: React.FC<HeaderProps> = ({ ...props }) => {
+export const AppHeader: React.FC<HeaderProps> = ({ ...props }) => {
   return <NavBar {...props} navProfleOptions={<SubMenu />} />;
 };
