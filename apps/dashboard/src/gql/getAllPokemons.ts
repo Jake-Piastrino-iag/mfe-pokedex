@@ -1,5 +1,6 @@
 import { gql } from "graphql-request";
 import PokemonList from "../../assets/pokemonlist.json";
+import { Pokemon } from "@favware/graphql-pokemon";
 
 const query = PokemonList.map(
   (pokemon) =>
