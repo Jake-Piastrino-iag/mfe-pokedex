@@ -4,6 +4,7 @@ import { App } from "./App";
 import "mfe-ui-components/dist/output.css";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const Bootstrap = () => {
   const queryClient = new QueryClient();
@@ -11,6 +12,7 @@ const Bootstrap = () => {
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <App />
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </BrowserRouter>
   );

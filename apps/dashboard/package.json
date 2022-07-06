@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack serve --open --mode development"
+    "dev": "webpack serve --open --mode development",
+    "grapqhl:codegen": "graphql-codegen --config codegen.yml"
   },
   "devDependencies": {
+    "@favware/graphql-pokemon": "^6.5.12",
+    "@graphql-codegen/cli": "2.7.0",
+    "@graphql-codegen/introspection": "2.1.1",
+    "@graphql-codegen/typescript": "2.6.0",
+    "@graphql-codegen/typescript-operations": "2.4.3",
+    "@graphql-codegen/typescript-react-apollo": "3.2.17",
+    "@graphql-codegen/typescript-react-query": "^3.5.14",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/webpack": "^5.28.0",
@@ -21,6 +29,8 @@
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
+    "graphql": "^16.5.0",
+    "graphql-request": "^4.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-query": "^3.39.1",
