@@ -36,13 +36,13 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
               <img src={avatar} />
             </div>
           </div>
-          <div className="form-control w-1/2 mt-6 ml-3">
+          <div className="form-control w-full mt-6 ml-3">
             <button className="btn btn-primary" onClick={updateAvatar}>
               Get different avatar
             </button>
           </div>
         </div>
-        <div className="form-control">
+        <div className="form-control  w-full">
           <label className="label">
             <span className="label-text">Character Name</span>
           </label>
@@ -80,13 +80,13 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
           <input
             type="password"
             placeholder="Retype password"
-            className="input  w-full max-w-xs input-accent"
+            className="input w-full max-w-xs input-accent"
             value={reEnterPassword}
             onChange={reTypedPassword}
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary" onClick={onFormActionHandler}>
+          <button className="btn btn-primary btn-wide" onClick={onFormActionHandler}>
             Lets Begin !
           </button>
         </div>

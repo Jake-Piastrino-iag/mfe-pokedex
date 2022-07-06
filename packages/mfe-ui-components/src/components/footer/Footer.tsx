@@ -7,7 +7,7 @@ type FooterProps = {
 
 export const Footer: React.FC<React.PropsWithChildren & FooterProps> = ({ footerText, children, footerHelperText }) => {
   return (
-    <footer className="footer p-10 bg-neutral text-neutral-content">
+    <footer className="footer p-10 bg-primary text-primary-content">
       <div>
         <svg
           width="50"
@@ -27,8 +27,7 @@ export const Footer: React.FC<React.PropsWithChildren & FooterProps> = ({ footer
         </p>
       </div>
       <div>
-        <span className="footer-title">Social</span>
-        <div className="grid grid-flow-col gap-4">{children}</div>
+        <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">{children}</div>
       </div>
     </footer>
   );

@@ -1,24 +1,17 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 import "mfe-ui-components/dist/output.css";
-import { AppContext } from "./context/AppContext/AppContext";
-import { AppContainer } from "./components/hoc/container/Container";
-import { BrowserRouter, Link } from "react-router-dom";
-import { AppRoutes } from "./routes/AppRoutes";
+import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const Bootstrap = () => {
-  const [federatedComponents, showFederatedComponents] = useState(false);
+  const queryClient = new QueryClient();
   return (
     <BrowserRouter>
-      <AppContext.Provider
-        value={{ showFederatedComponents: federatedComponents, setShowFederatedComponents: showFederatedComponents }}
-      >
-        <AppContainer>
-          <Link to="/dashboard">Dashboard</Link>
-          <AppRoutes />
-        </AppContainer>
-      </AppContext.Provider>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </BrowserRouter>
   );
 };
