@@ -1,28 +1,32 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
 import { GET_ALL_POKEMONS } from "../gql/getAllPokemons";
-import { useReactQuery } from "../gql/useGQLQuery";
+import { GraphQLPokemonResponse, useGQLQuery } from "../gql/useGQLQuery";
 import { CardComponent as Card } from "mfe-ui-components";
 import { Pokemon } from "@favware/graphql-pokemon";
+//import { gqlQuery } from "../gql/useGQLQuery";
 
-const PokemonList = () => {
-  const [listOfPokemons, setListOfPokemons] = useState<Pokemon[]>(null);
-  const [isLoading, setIsLoading] = useState(true);
+export const PokemonList = () => {
+  const [listOfPokemons, setListOfPokemons] = useState<GraphQLPokemonResponse<"getPokemon">>(null);
+  const [isLoadingData, setIsLoadingData] = useState(true);
 
-  useEffect(() => {
-    const { data, error, isLoading } = useReactQuery("pokemons", GET_ALL_POKEMONS, {});
-    setListOfPokemons(data);
-    setIsLoading(isLoading);
-  }, []);
-
+  const { data, loading, error } = useGQLQuery("getPokemon", GET_ALL_POKEMONS);
+  console.log(data);
+  // setListOfPokemons(data);
   return (
     <div className="grid gap-4 grid-cols-3 grid-rows-3">
-      {isLoading && <p>Loading....</p>}
-
-      {!isLoading &&
-        listOfPokemons.map((pokemon) => {
-          return <Card imageUrl={pokemon.sprite} imageAlt={pokemon.species} header={pokemon.species} body={<></>} />;
-        })}
+      {isLoadingData && <p>Loading....</p>}
+      {/* {!loading &&
+        Object.entries(listOfPokemons).map(([key, value]) => {
+          return (
+            <Card
+              imageUrl={value.sprite}
+              imageAlt={value.species}
+              header={value.species}
+              body={<></>}
+              actionText="Reveal"
+            />
+          );
+        })} */}
     </div>
   );
 };

@@ -1,17 +1,37 @@
-import { useQuery } from "react-query";
+import { gql, useQuery } from "@apollo/client";
 import type { Query } from "@favware/graphql-pokemon";
-import { GraphQLClient } from "graphql-request";
-
-const API_URL = "https://graphqlpokemon.favware.tech/";
+import { client } from "../apolloClient";
+import { GET_ALL_POKEMONS } from "./getAllPokemons";
 
 export interface GraphQLPokemonResponse<K extends keyof Omit<Query, "__typename">> {
   data: Record<K, Omit<Query[K], "__typename">>;
 }
 
-export const useReactQuery = (key: any, query: any, variables: any, config = {}) => {
-  const graphQLClient = new GraphQLClient(API_URL, {});
+console.log(GET_ALL_POKEMONS);
 
-  const fetchData = async () => await graphQLClient.request(query, variables);
-
-  return useQuery(key, fetchData, config);
+export const useGQLQuery = (key: keyof Omit<Query, "__typename">, query: any, variables?: any) => {
+  return useQuery<GraphQLPokemonResponse<"getPokemon">>(
+    gql`
+      query{
+        ${GET_ALL_POKEMONS}
+      }
+    `
+  );
+  //return { data, loading, error };
 };
+
+// export const useGQLQuery = fetch("https://graphqlpokemon.favware.tech/", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json"
+//   },
+//   body: JSON.stringify({
+//     query: `
+//     {
+//       ${GET_ALL_POKEMONS}
+//     }
+//     `
+//   })
+// })
+//   .then((res) => res.json() as Promise<GraphQLPokemonResponse<"getPokemon">>)
+//   .then((json) => console.log(json.data));

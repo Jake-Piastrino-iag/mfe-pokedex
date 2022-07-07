@@ -5,6 +5,7 @@ import { AppFooter } from "../components/footer/Footer";
 import { AppHeader } from "../components/header/Header";
 import { UserContext } from "../context/UserContext/UserContext";
 import { AppContext } from "../context/AppContext/AppContext";
+import { PokemonList } from "./PokemonList";
 
 export const Dashboard = () => {
   //const { characterName, avatarUrl, pokemons, setPokemons } = useContext(UserContext);
@@ -26,7 +27,7 @@ export const Dashboard = () => {
         avatarUrl={avatar}
         showProfile={showProfile}
       ></AppHeader>
-
+      <PokemonList />
       <AppFooter footerText="Shaarang Tanpure @FSO-DET EY" footerHelperText="A demo app">
         <div className="form-control">
           <label className="label cursor-pointer">

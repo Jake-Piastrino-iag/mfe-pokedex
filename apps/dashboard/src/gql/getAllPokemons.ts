@@ -1,10 +1,9 @@
-import { gql } from "graphql-request";
+import { gql } from "@apollo/client";
 import PokemonList from "../../assets/pokemonlist.json";
-import { Pokemon } from "@favware/graphql-pokemon";
 
 const query = PokemonList.map(
   (pokemon) =>
-    `${pokemon}:getPokemon(pokemon: ${pokemon} reverseFlavorTexts: true takeFlavorTexts: 1) {
+    `${pokemon.toLowerCase()}:getPokemon(pokemon: ${pokemon.toLowerCase()} reverseFlavorTexts: true takeFlavorTexts: 1) {
 		num
 		species
 		types
@@ -30,10 +29,4 @@ const query = PokemonList.map(
 	}`
 );
 
-console.log(query);
-
-export const GET_ALL_POKEMONS = gql`
-query{
-    ${query.toString()}
-}
-`;
+export const GET_ALL_POKEMONS = query.slice(0, 26).toString();

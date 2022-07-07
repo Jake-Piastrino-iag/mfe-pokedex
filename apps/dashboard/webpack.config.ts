@@ -27,7 +27,7 @@ export default {
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "microfrontend",
+      name: "mfe_dashboard",
       filename: "remoteEntry.js",
       remotes: {
         mfe_forms: "mfe_forms@http://localhost:8081/remoteEntry.js"

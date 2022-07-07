@@ -6,7 +6,7 @@ type CardProps = {
   header: string;
   body: React.ReactNode;
   actionText: string;
-  onActionHandler(): React.MouseEvent<HTMLInputElement>;
+  onActionHandler?(): React.MouseEvent<HTMLInputElement>;
 };
 
 export const CardComponent: React.FC<CardProps> = ({
@@ -15,7 +15,7 @@ export const CardComponent: React.FC<CardProps> = ({
   header,
   body,
   actionText,
-  onActionHandler,
+  onActionHandler
 }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
