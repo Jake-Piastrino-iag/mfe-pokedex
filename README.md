@@ -12,7 +12,7 @@
 
 - [upstash-Redis](https://upstash.com/)
 
-- [React-query](https://react-query.tanstack.com/)
+- [Apollo-client](https://www.apollographql.com/docs/react/get-started)
 
 - [Pokemon graphql](https://github.com/favware/graphql-pokemon)
 

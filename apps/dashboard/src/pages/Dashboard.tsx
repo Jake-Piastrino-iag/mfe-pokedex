@@ -14,33 +14,52 @@ export const Dashboard = () => {
   const [character, setCharacter] = useState("");
   const [avatar, setAvatar] = useState("");
   const [userPokemons, setUserPokemons] = useState<any[]>([]);
-  const [showProfile, setShowProfile] = useState<boolean>(false);
+  const [showProfile, setShowProfile] = useState<boolean>(true);
 
   const onSelectedHandler = () => {};
 
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("user") || "{}");
+    setCharacter(userData.characterName);
+    setAvatar(userData.avatar);
+  }, []);
+
   return (
     <>
-      <AppHeader
-        onSelectedHandler={onSelectedHandler}
-        navbarText="Pokemon Trading"
-        selectedNumber={userPokemons.length}
-        avatarUrl={avatar}
-        showProfile={showProfile}
-      ></AppHeader>
-      <PokemonList />
-      <AppFooter footerText="Shaarang Tanpure @FSO-DET EY" footerHelperText="A demo app">
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <h4 className="label-text mr-4">Show federated components</h4>
-            <input
-              type="checkbox"
-              className="toggle checkbox checkbox-lg checkbox-primary"
-              checked={showFederatedComponents}
-              onClick={() => setShowFederatedComponents(!showFederatedComponents)}
-            />
-          </label>
-        </div>
-      </AppFooter>
+      {character && (
+        <UserContext.Provider
+          value={{
+            characterName: character,
+            avatarUrl: avatar,
+            pokemons: userPokemons,
+            setPokemons: setUserPokemons
+          }}
+        >
+          <AppHeader
+            onSelectedHandler={onSelectedHandler}
+            navbarText="Pokemon Trading"
+            selectedNumber={userPokemons.length}
+            avatarUrl={avatar}
+            showProfile={showProfile}
+          ></AppHeader>
+          <AppContainer>
+            <PokemonList />
+          </AppContainer>
+          <AppFooter footerText="Shaarang Tanpure @FSO-DET EY" footerHelperText="A demo app">
+            <div className="form-control">
+              <label className="label cursor-pointer">
+                <h4 className="label-text mr-4">Show federated components</h4>
+                <input
+                  type="checkbox"
+                  className="toggle checkbox checkbox-lg checkbox-primary"
+                  checked={showFederatedComponents}
+                  onClick={() => setShowFederatedComponents(!showFederatedComponents)}
+                />
+              </label>
+            </div>
+          </AppFooter>
+        </UserContext.Provider>
+      )}
     </>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
-import "mfe-ui-components/dist/output.css";
 import { BrowserRouter } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "./apolloClient";

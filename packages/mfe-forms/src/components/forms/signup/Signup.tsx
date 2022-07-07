@@ -49,7 +49,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
           <input
             type="text"
             placeholder={characterName}
-            className="input w-full max-w-xs input-accent"
+            className="input w-full max-w-xs input-bordered input-info"
             onChange={updateCharacterName}
           />
         </div>
@@ -60,7 +60,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
           <input
             type="email"
             placeholder="email"
-            className="input w-full max-w-xs  input-accent"
+            className="input w-full max-w-xs input-bordered input-info"
             onChange={updateEmail}
           />
         </div>
@@ -71,7 +71,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
           <input
             type="password"
             placeholder="password"
-            className="input  w-full max-w-xs input-accent"
+            className="input  w-full max-w-xs input-bordered input-info"
             onChange={updatePassword}
           />
           <label className="label">
@@ -80,12 +80,12 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
           <input
             type="password"
             placeholder="Retype password"
-            className="input w-full max-w-xs input-accent"
+            className="input w-full max-w-xs input-bordered input-info"
             value={reEnterPassword}
             onChange={reTypedPassword}
           />
         </div>
-        <div className="form-control mt-6">
+        <div className="form-control mt-6 w-full text-center items-center">
           <button className="btn btn-primary btn-wide" onClick={onFormActionHandler}>
             Lets Begin !
           </button>

@@ -16,7 +16,13 @@ export const LoginForm: React.FC<LoginProps> = ({ email, setEmail, setPassword, 
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="text" placeholder="email" className="input input-bordered" value={email} onChange={setEmail} />
+          <input
+            type="text"
+            placeholder="email"
+            className="input input-bordered input-info"
+            value={email}
+            onChange={setEmail}
+          />
         </div>
         <div className="form-control">
           <label className="label">
@@ -25,7 +31,7 @@ export const LoginForm: React.FC<LoginProps> = ({ email, setEmail, setPassword, 
           <input
             type="text"
             placeholder="password"
-            className="input input-bordered"
+            className="input input-bordered input-info"
             value={password}
             onChange={setPassword}
           />

@@ -12,10 +12,8 @@ export const App = () => {
     <AppContext.Provider
       value={{ showFederatedComponents: federatedComponents, setShowFederatedComponents: showFederatedComponents }}
     >
-      <AppContainer>
-        <Link to="/dashboard">Dashboard</Link>
-        <AppRoutes />
-      </AppContainer>
+      <Link to="/dashboard">Dashboard</Link>
+      <AppRoutes />
     </AppContext.Provider>
   );
 };

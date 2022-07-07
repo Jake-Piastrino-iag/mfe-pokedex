@@ -5,14 +5,16 @@ type CardProps = {
   imageAlt?: string;
   header: string;
   body: React.ReactNode;
+  badge?: string[];
   actionText: string;
-  onActionHandler?(): React.MouseEvent<HTMLInputElement>;
+  onActionHandler(e: React.MouseEvent<HTMLButtonElement>): void;
 };
 
 export const CardComponent: React.FC<CardProps> = ({
   imageUrl,
   imageAlt,
   header,
+  badge,
   body,
   actionText,
   onActionHandler
@@ -20,14 +22,17 @@ export const CardComponent: React.FC<CardProps> = ({
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       {imageUrl && (
-        <figure>
+        <figure className="mt-4">
           <img src={imageUrl} alt={imageAlt} />
         </figure>
       )}
-      <div className="card-body">
-        <h2 className="card-title">{header}</h2>
-        {body}
-        <div className="card-actions justify-end">
+      <div className="card-body items-center text-center">
+        <h2 className="card-title">
+          {header}
+          {badge && badge.map((option) => <div className="badge badge-secondary">{option}</div>)}
+        </h2>
+        {body && body}
+        <div className="card-actions">
           <button className="btn btn-primary" onClick={onActionHandler}>
             {actionText}
           </button>

@@ -45,6 +45,7 @@ export const SignUpPage = () => {
       password: hashedPassword(password),
       email
     };
+    localStorage.setItem("user", JSON.stringify(userData));
   };
 
   return (
