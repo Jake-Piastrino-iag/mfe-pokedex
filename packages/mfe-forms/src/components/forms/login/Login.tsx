@@ -5,7 +5,7 @@ type LoginProps = {
   setEmail: React.ChangeEventHandler<HTMLInputElement>;
   password: string;
   setPassword: React.ChangeEventHandler<HTMLInputElement>;
-  onLoginHandler(): void;
+  onLoginHandler(e: React.MouseEvent<HTMLButtonElement>): void;
 };
 
 export const LoginForm: React.FC<LoginProps> = ({ email, setEmail, setPassword, password, onLoginHandler }) => {
@@ -19,7 +19,7 @@ export const LoginForm: React.FC<LoginProps> = ({ email, setEmail, setPassword, 
           <input
             type="text"
             placeholder="email"
-            className="input input-bordered input-info"
+            className="input  w-full input-bordered input-info"
             value={email}
             onChange={setEmail}
           />
@@ -29,14 +29,14 @@ export const LoginForm: React.FC<LoginProps> = ({ email, setEmail, setPassword, 
             <span className="label-text">Password</span>
           </label>
           <input
-            type="text"
+            type="password"
             placeholder="password"
-            className="input input-bordered input-info"
+            className="input  w-full input-bordered input-info"
             value={password}
             onChange={setPassword}
           />
         </div>
-        <div className="form-control mt-6">
+        <div className="form-control mt-6 text-center items-center w-full">
           <button className="btn btn-primary" onClick={onLoginHandler}>
             Login
           </button>

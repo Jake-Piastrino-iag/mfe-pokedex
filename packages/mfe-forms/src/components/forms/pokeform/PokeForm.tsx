@@ -1,4 +1,5 @@
 import React from "react";
+import { Stats } from "mfe-ui-components";
 
 type BaseStats = {
   hp: string;
@@ -13,24 +14,33 @@ type PokeFormProps = {
   pokemonBlingUrl: string;
   species: string;
   baseStats: BaseStats;
+  onActionHandler(e: React.MouseEvent<HTMLButtonElement>): void;
 };
 
-const PokeForm: React.FC<PokeFormProps> = ({ pokemonUrl, species, pokemonBlingUrl, baseStats }) => {
-  const formatStats = Object.entries(baseStats).map((k, v) => console.log(k, v));
-  console.log(formatStats);
+const PokeForm: React.FC<PokeFormProps> = ({ pokemonUrl, species, pokemonBlingUrl, baseStats, onActionHandler }) => {
+  let formatStats = [];
+  for (const [key, value] of Object.entries(baseStats)) {
+    if (key !== "__typename") {
+      formatStats.push({ title: key, value });
+    }
+  }
   return (
     <div className="card card-side bg-base-100 shadow-xl">
-      <figure>
-        <img src={pokemonUrl} alt={species} />
-      </figure>
-      <figure>
-        <img src={pokemonBlingUrl} alt={species} />
-      </figure>
+      <div className="flex justify justify-around">
+        <figure>
+          <img src={pokemonUrl} alt={species} />
+        </figure>
+        <figure>
+          <img src={pokemonBlingUrl} alt={species} />
+        </figure>
+      </div>
       <div className="card-body">
         <h2 className="card-title">{species}</h2>
-        {/*<Stats stats={formatStats}/>*/}
+        <Stats stats={formatStats} />
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Watch</button>
+          <button className="btn btn-primary" onClick={onActionHandler}>
+            Trade
+          </button>
         </div>
       </div>
     </div>

@@ -34,7 +34,7 @@ export default {
       exposes: {
         "./App": "./src/App",
         "./PokeForm": "./src/components/forms/pokeform/PokeForm",
-        "./AppRoutes": "./src/routes/Routes"
+        "./Routes": "./src/routes/AppRoutes"
       },
       shared: {
         ...dependencies,

@@ -11,9 +11,9 @@ type StatsProps = {
 
 export const Stats: React.FC<StatsProps> = ({ stats }) => {
   return (
-    <div className="stats stats-vertical shadow">
+    <div className="stats shadow">
       {stats.map((option) => (
-        <div className="stat">
+        <div className="stat place-items-center">
           <div className="stat-title">{option.title}</div>
           <div className="stat-value">{option.value}</div>
         </div>

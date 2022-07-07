@@ -7,6 +7,7 @@ type CardProps = {
   body: React.ReactNode;
   badge?: string[];
   actionText: string;
+  blur?: boolean;
   onActionHandler(e: React.MouseEvent<HTMLButtonElement>): void;
 };
 
@@ -16,11 +17,13 @@ export const CardComponent: React.FC<CardProps> = ({
   header,
   badge,
   body,
+  blur,
   actionText,
   onActionHandler
 }) => {
+  const isBlur = blur ? "blur-sm" : "";
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className={"card w-96 bg-base-100 shadow-xl" + isBlur}>
       {imageUrl && (
         <figure className="mt-4">
           <img src={imageUrl} alt={imageAlt} />

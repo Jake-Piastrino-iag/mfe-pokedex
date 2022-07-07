@@ -10,15 +10,18 @@ export const SubMenu = () => {
           <img src={avatarUrl} />
         </div>
       </label>
-      <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+      <ul
+        tabIndex={0}
+        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-stone-800"
+      >
         <li>
-          <a className="justify-between">Profile</a>
+          <a className="justify-between text-stone-800">Profile</a>
         </li>
         <li>
-          <a>Settings</a>
+          <a className="text-stone-800">Settings</a>
         </li>
         <li>
-          <a>Logout</a>
+          <a className="text-stone-800">Logout</a>
         </li>
       </ul>
     </div>

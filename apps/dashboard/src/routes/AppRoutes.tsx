@@ -5,7 +5,7 @@ import { SignUpPage } from "../pages/SignupPage";
 import { Dashboard } from "../pages/Dashboard";
 import { UserPokemons } from "../pages/UserPokemons";
 //@ts-ignore
-import { AppRoutes as mfe_form_routes } from "mfe_form/AppRoutes";
+//import { AppRoutes as mfe_form_routes } from "mfe_form/AppRoutes";
 
 export const AppRoutes = () => {
   let routes = [
@@ -16,11 +16,15 @@ export const AppRoutes = () => {
     {
       element: <UserPokemons />,
       path: "/my-pokemons"
+    },
+    {
+      element: <SignUpPage />,
+      path: "/"
     }
   ];
 
-  if (mfe_form_routes) {
-    routes.push(...mfe_form_routes);
-  }
+  // if (mfe_form_routes) {
+  //   routes.push(...mfe_form_routes);
+  // }
   return useRoutes(routes);
 };

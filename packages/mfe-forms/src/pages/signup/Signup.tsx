@@ -51,6 +51,14 @@ export const SignUpPage = () => {
     navigate("/dashboard");
   };
 
+  const onUserLoginHandler = () => {
+    console.log(email, password);
+    if (email !== "brock@pokemaster.com" && password !== "NurseJoy$#101") {
+      return;
+    }
+    navigate("/dashboard");
+  };
+
   return (
     <Hero
       heading={isSignUp ? "Sign-up to be a pokemon trainer" : "Login to check your stats"}
@@ -78,7 +86,7 @@ export const SignUpPage = () => {
           setEmail={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
           password={password}
           setPassword={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-          onLoginHandler={() => console.log("login")}
+          onLoginHandler={() => navigate("/dashboard")}
         />
       )}
     </Hero>
