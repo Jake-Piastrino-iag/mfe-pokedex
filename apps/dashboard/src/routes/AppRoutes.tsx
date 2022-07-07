@@ -1,14 +1,26 @@
 import React from "react";
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useRoutes } from "react-router-dom";
 import { SignUpPage } from "../pages/SignupPage";
 import { Dashboard } from "../pages/Dashboard";
+import { UserPokemons } from "../pages/UserPokemons";
+//@ts-ignore
+import { AppRoutes as mfe_form_routes } from "mfe_form/AppRoutes";
 
 export const AppRoutes = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<SignUpPage />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-    </Routes>
-  );
+  let routes = [
+    {
+      element: <Dashboard />,
+      path: "/dashboard"
+    },
+    {
+      element: <UserPokemons />,
+      path: "/my-pokemons"
+    }
+  ];
+
+  if (mfe_form_routes) {
+    routes.push(...mfe_form_routes);
+  }
+  return useRoutes(routes);
 };

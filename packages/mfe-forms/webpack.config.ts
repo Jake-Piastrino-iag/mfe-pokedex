@@ -32,7 +32,9 @@ export default {
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./App": "./src/App"
+        "./App": "./src/App",
+        "./PokeForm": "./src/components/forms/pokeform/PokeForm",
+        "./AppRoutes": "./src/routes/Routes"
       },
       shared: {
         ...dependencies,

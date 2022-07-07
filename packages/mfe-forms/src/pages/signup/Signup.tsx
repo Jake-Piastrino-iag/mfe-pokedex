@@ -1,8 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState } from "react";
 import { Hero } from "mfe-ui-components";
 import { SignUpForm } from "../../components/forms/signup/Signup";
 import { LoginForm } from "../../components/forms/login/Login";
 import { hashedPassword } from "../../utils/hashPassword";
+import { useNavigate } from "react-router-dom";
 
 export const SignUpPage = () => {
   const [isSignUp, setSignUp] = useState(true);
@@ -11,6 +12,7 @@ export const SignUpPage = () => {
   const [retypePassword, setRetypePassword] = useState("");
   const [avatar, setAvatar] = useState("https://avatars.dicebear.com/api/adventurer/:seed.svg");
   const [characterName, setCharacterName] = useState("Ash Ketchum");
+  const navigate = useNavigate();
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>, type: string) => {
     switch (type) {
@@ -46,6 +48,7 @@ export const SignUpPage = () => {
       email
     };
     localStorage.setItem("user", JSON.stringify(userData));
+    navigate("/dashboard");
   };
 
   return (
