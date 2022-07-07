@@ -8,13 +8,25 @@
 
 - [pnpm](https://pnpm.io/)
 
-- [zustand](https://zustand-demo.pmnd.rs/)
-
 - [upstash-Redis](https://upstash.com/)
 
 - [Apollo-client](https://www.apollographql.com/docs/react/get-started)
 
 - [Pokemon graphql](https://github.com/favware/graphql-pokemon)
+
+- [Daisy ui and Tailwind CSS](https://daisyui.com/)
+
+### Get Started
+
+1. Clone Repo
+
+2. Global install pnpm `npm i -g pnpm` and install deps using cmd `pnpm i`
+
+3. Generate Tailwind css `pnpx tailwindcss -i ./src/input.css -o ./dist/output.css --filter /packages/mfe-ui-components`
+
+4. Run all workspaces parallely `pnpm run --parallel dev`
+
+5. App shell severed on **localhost:8083**
 
 ### Microfrontend Architecture
 

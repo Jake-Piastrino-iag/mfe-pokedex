@@ -27,7 +27,7 @@ export const UserPokemons = () => {
                 key={pokemon.species}
                 pokemonUrl={pokemon.sprite}
                 pokemonBlingUrl={pokemon.shinySprite}
-                species={pokemon.species}
+                species={`${pokemon.species.charAt(0).toUpperCase()}${pokemon.species.slice(1)}`}
                 baseStats={pokemon.baseStats}
                 onActionHandler={() => onActionHandler(pokemon.species)}
               />
