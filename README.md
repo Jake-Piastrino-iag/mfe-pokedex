@@ -22,9 +22,12 @@
 
 2. Global install pnpm `npm i -g pnpm` and install deps using cmd `pnpm i`
 
-3. Generate Tailwind css `pnpx tailwindcss -i ./src/input.css -o ./dist/output.css --filter /packages/mfe-ui-components`
+3. Generate DaisyUI and Tailwind css classes
 
-4. Run all workspaces parallely `pnpm run --parallel dev`
+- Navigate to mfe-ui-components package - `cd packages\mfe-ui-components\`
+- Run cmd `pnpx tailwindcss -i ./src/input.css -o ./dist/output.css`
+
+4. From the root of the project, run all workspaces parallely `pnpm run --parallel dev`
 
 5. App shell severed on **localhost:8083**
 
