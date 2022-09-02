@@ -1,18 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { App } from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "./apolloClient";
 
-const Bootstrap = () => {
-  return (
-    <BrowserRouter>
-      <ApolloProvider client={client}>
-        <App />
-      </ApolloProvider>
-    </BrowserRouter>
-  );
-};
+const container = document.getElementById("root");
+const root = createRoot(container);
 
-ReactDOM.render(<Bootstrap />, document.getElementById("root"));
+root.render(
+  <BrowserRouter>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </BrowserRouter>
+)
