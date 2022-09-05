@@ -7,6 +7,8 @@ import { UserContext } from "../context/UserContext/UserContext";
 import { AppContext } from "../context/AppContext/AppContext";
 import { useNavigate } from "react-router-dom";
 
+import { Banner } from "mfe-ui-components";
+
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { characterName, setCharacterName, avatarUrl, setAvatarUrl, pokemons, setPokemons } = useContext(UserContext);
   const { showFederatedComponents, setShowFederatedComponents } = useContext(AppContext);
@@ -15,6 +17,10 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
   const onSelectedHandler = () => {
     navigate("/my-pokemons");
+  };
+
+  const onSelectHomeHandler = () => {
+    navigate("/dashboard");
   };
 
   useEffect(() => {
@@ -27,9 +33,11 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     <>
       {characterName && (
         <div>
+          <Banner />
           <AppHeader
             onSelectedHandler={onSelectedHandler}
             navbarText="Pokemon Trading"
+            onSelectHomeHandler={onSelectHomeHandler}
             selectedNumber={pokemons.length}
             avatarUrl={avatarUrl}
             showProfile={showProfile}

@@ -65,7 +65,7 @@ export const SignUpPage = () => {
       info={isSignUp ? "Choose an avatar and get started" : "Log back in"}
       toggleHandler={() => setSignUp(!isSignUp)}
     >
-      {isSignUp && (
+      {isSignUp ? (
         <SignUpForm
           characterName={characterName}
           updateCharacterName={(e) => setCharacterName(e.target.value)}
@@ -79,8 +79,7 @@ export const SignUpPage = () => {
           reTypedPassword={(e) => setRetypePassword(e.target.value)}
           onFormActionHandler={onUserSignUpHandler}
         />
-      )}
-      {!isSignUp && (
+      ) : (
         <LoginForm
           email={email}
           setEmail={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}

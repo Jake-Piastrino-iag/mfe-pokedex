@@ -6,6 +6,7 @@ import { SubMenu } from "./SubMenu";
 
 export type HeaderProps = {
   navbarText: string;
+  onSelectHomeHandler(): void;
   selectedNumber?: number;
   onSelectedHandler(): void;
   avatarUrl?: string;

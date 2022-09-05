@@ -3,11 +3,15 @@ import { UserContext } from "../context/UserContext/UserContext";
 import { PokemonList } from "./PokemonList";
 import { Layout } from "./Layout";
 
-export const Dashboard = () => {
+interface DashboardProps {
+  ancestors: string[];
+}
+
+export const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
   const { characterName, avatarUrl, pokemons, setPokemons } = useContext(UserContext);
   return (
     <Layout>
-      <PokemonList />
+      <PokemonList ancestors={[...props.ancestors, "pokemonList"]}/>
     </Layout>
   );
 };

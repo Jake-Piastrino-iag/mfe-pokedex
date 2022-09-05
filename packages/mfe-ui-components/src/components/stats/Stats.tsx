@@ -12,8 +12,8 @@ type StatsProps = {
 export const Stats: React.FC<StatsProps> = ({ stats }) => {
   return (
     <div className="stats shadow">
-      {stats.map((option) => (
-        <div className="stat place-items-center">
+      {stats.map((option, index) => (
+        <div key={`${index}-${option.title}-${option.value}`} className="stat place-items-center">
           <div className="stat-title">{option.title}</div>
           <div className="stat-value">{option.value}</div>
         </div>

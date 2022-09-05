@@ -32,7 +32,7 @@ export const CardComponent: React.FC<CardProps> = ({
       <div className="card-body items-center text-center">
         <h2 className="card-title">
           {header}
-          {badge && badge.map((option) => <div className="badge badge-secondary">{option}</div>)}
+          {badge && badge.map((option) => <div key={option} className="badge badge-secondary">{option}</div>)}
         </h2>
         {body && body}
         <div className="card-actions">

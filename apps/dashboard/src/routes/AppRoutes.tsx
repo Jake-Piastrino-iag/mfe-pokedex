@@ -10,11 +10,11 @@ import { UserPokemons } from "../pages/UserPokemons";
 export const AppRoutes = () => {
   let routes = [
     {
-      element: <Dashboard />,
+      element: <Dashboard ancestors={["dashboard"]} />,
       path: "/dashboard"
     },
     {
-      element: <UserPokemons />,
+      element: <UserPokemons ancestors={["userPokemons"]}/>,
       path: "/my-pokemons"
     },
     {

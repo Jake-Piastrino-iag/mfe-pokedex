@@ -2,6 +2,7 @@ import React from "react";
 
 type NavBarProps = {
   navbarText: string;
+  onSelectHomeHandler(): void;
   selectedNumber?: number;
   navbarLink?: string;
   onSelectedHandler(): void;
@@ -12,7 +13,7 @@ type NavBarProps = {
 
 export const NavBar: React.FC<NavBarProps> = ({
   navbarText,
-  navbarLink,
+  onSelectHomeHandler,
   selectedNumber,
   onSelectedHandler,
   showProfile,
@@ -20,9 +21,9 @@ export const NavBar: React.FC<NavBarProps> = ({
   navProfleOptions
 }) => {
   return (
-    <div className="navbar bg-base-100 bg-primary text-primary-content">
+    <div className="navbar bg-base-100 bg-primary text-primary-content fixed top-0 z-10">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">{navbarText}</a>
+        <a className="btn btn-ghost normal-case text-xl" onClick={onSelectHomeHandler}>{navbarText}</a>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
@@ -36,9 +37,9 @@ export const NavBar: React.FC<NavBarProps> = ({
                 stroke="currentColor"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
