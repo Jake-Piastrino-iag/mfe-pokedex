@@ -7,17 +7,4 @@
   <body>
     <div id="root"></div>
   </body>
-  <script>
-    window.addEventListener('PokemonList:choosePokemon', (ev) => {
-      if (Object.keys(ev.detail).length > 0) {
-        alert(ev.detail.event.ancestors ? `Ancestors are ${ev.detail.event.ancestors}` : 'There are no ancestors');
-      }
-    });
-
-    window.addEventListener('UserPokemons:tradePokemon', (ev) => {
-      if (Object.keys(ev.detail).length > 0) {
-        alert(ev.detail.event.ancestors ? `Ancestors are ${ev.detail.event.ancestors}` : 'There are no ancestors');
-      }
-    });
-  </script>
 </html>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { GET_ALL_POKEMONS } from "../gql/getAllPokemons";
 import { GraphQLPokemonResponse, useGQLQuery } from "../gql/useGQLQuery";
 import { CardComponent as Card } from "mfe-ui-components";
@@ -9,35 +9,13 @@ import { AppContext } from "../context/AppContext/AppContext";
 import { Loader } from "../components/loader/Loader";
 //import { gqlQuery } from "../gql/useGQLQuery";
 
-interface PokemonListProps {
-  ancestors: string[];
-}
-
-export const PokemonList: React.FC<PokemonListProps> = (props: PokemonListProps) => {
+export const PokemonList = () => {
   const { data, loading, error } = useGQLQuery("getPokemon", GET_ALL_POKEMONS);
   const { showFederatedComponents } = useContext(AppContext);
   const { pokemons, setPokemons } = useContext(UserContext);
 
-  const addData = (ev: React.MouseEvent<HTMLButtonElement>, pokemonData: any) => {
-    //pokemonList = [...pokemonList.filter(([key, value]) => value.species === pokemonData.species)];
-    //console.log(pokemonList);
-    
+  const addData = (pokemonData: any) => {    
     setPokemons([...pokemons, pokemonData]);
-
-    const event = new CustomEvent('PokemonList:choosePokemon', {
-      bubbles: true,
-      detail: {
-        moduleName: "PokemonList:choosePokemonButton",
-        event: {
-          ancestors: props.ancestors,
-          action: "click",
-          shortDescription: `${pokemonData.species.charAt(0).toUpperCase()}${pokemonData.species.slice(1)} added to bag.`,
-          description: `You caught a pokemon! ${pokemonData.species.charAt(0).toUpperCase()}${pokemonData.species.slice(1)} has been added to your bag.`
-        },
-      }
-    });
-
-    ev.target.dispatchEvent(event);
   };
 
   return (
@@ -59,7 +37,7 @@ export const PokemonList: React.FC<PokemonListProps> = (props: PokemonListProps)
                 badge={value.types}
                 body={<p>{value.flavorTexts[0].flavour}</p>}
                 actionText="Choose"
-                onActionHandler={(ev) => addData(ev, value)}
+                onActionHandler={() => addData(value)}
               />
             );
           })}

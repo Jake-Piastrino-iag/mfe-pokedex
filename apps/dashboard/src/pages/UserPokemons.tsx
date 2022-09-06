@@ -6,30 +6,11 @@ import { UserContext } from "../context/UserContext/UserContext";
 import { Layout } from "./Layout";
 import { Loader } from "../components/loader/Loader";
 
-interface UserPokemonsProps {
-  ancestors: string[];
-}
-
-export const UserPokemons: React.FC<UserPokemonsProps> = (props: UserPokemonsProps) => {
+export const UserPokemons = () => {
   const { pokemons, setPokemons } = useContext(UserContext);
 
-  const onTradeHandler = (ev: React.MouseEvent<HTMLButtonElement>, species: string) => {
+  const onTradeHandler = (species: string) => {
     setPokemons(pokemons.filter((pokemon) => pokemon.species !== species));
-
-    const event = new CustomEvent('UserPokemons:tradePokemon', {
-      bubbles: true,
-      detail: {
-        moduleName: "UserPokemons:tradePokemonButton",
-        event: {
-          ancestors: props.ancestors,
-          action: "click",
-          shortDescription: `${species.charAt(0).toUpperCase()}${species.slice(1)} traded.`,
-          description: `You traded a pokemon! ${species.charAt(0).toUpperCase()}${species.slice(1)} has been removed from your bag.`
-        },
-      }
-    });
-
-    ev.target.dispatchEvent(event);
   };
 
   return (
@@ -49,7 +30,7 @@ export const UserPokemons: React.FC<UserPokemonsProps> = (props: UserPokemonsPro
                 pokemonBlingUrl={pokemon.shinySprite}
                 species={`${pokemon.species.charAt(0).toUpperCase()}${pokemon.species.slice(1)}`}
                 baseStats={pokemon.baseStats}
-                onActionHandler={(ev: React.MouseEvent<HTMLButtonElement>) => onTradeHandler(ev, pokemon.species)}
+                onActionHandler={() => onTradeHandler(pokemon.species)}
               />
             );
           })}
