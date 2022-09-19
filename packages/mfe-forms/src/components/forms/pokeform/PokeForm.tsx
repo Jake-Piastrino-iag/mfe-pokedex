@@ -10,6 +10,7 @@ type BaseStats = {
   speed: string;
 };
 type PokeFormProps = {
+  id: string;
   pokemonUrl: string;
   pokemonBlingUrl: string;
   species: string;
@@ -17,7 +18,7 @@ type PokeFormProps = {
   onActionHandler(e: React.MouseEvent<HTMLButtonElement>): void;
 };
 
-const PokeForm: React.FC<PokeFormProps> = ({ pokemonUrl, species, pokemonBlingUrl, baseStats, onActionHandler }) => {
+const PokeForm: React.FC<PokeFormProps> = ({ id, pokemonUrl, species, pokemonBlingUrl, baseStats, onActionHandler }) => {
   let formatStats = [];
   for (const [key, value] of Object.entries(baseStats)) {
     if (key !== "__typename") {
@@ -25,7 +26,7 @@ const PokeForm: React.FC<PokeFormProps> = ({ pokemonUrl, species, pokemonBlingUr
     }
   }
   return (
-    <div className="card card-side bg-base-100 shadow-xl">
+    <div id={id} className="card card-side bg-base-100 shadow-xl">
       <div className="flex justify justify-around">
         <figure>
           <img src={pokemonUrl} alt={species} />

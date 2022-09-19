@@ -1,25 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MegaphoneIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 interface Banner {
-  items: object;
-}
+  detail: {
+    event: {
+      description: string,
+      shortDescription: string
+    }
+  }
+};
 
 export const Banner: React.FC = () => {
-  const [bannerData, setBannerData] = useState<any>({});
+  const [bannerData, setBannerData] = useState<Banner["detail"]>();
 
   const eventNames: string[] = [
     "UserPokemons:tradePokemon",
     "PokemonList:choosePokemon"
   ];
 
+  const setBannerDataEvent = (ev: CustomEvent) => setBannerData(ev.detail);
+
   useEffect(() => {
     for(var i = 0; i < eventNames.length; i++) {
-      window.addEventListener(eventNames[i], (ev: any) => setBannerData(ev.detail));
+      window.addEventListener(eventNames[i], setBannerDataEvent as EventListener);
+    }
+
+    return () => {
+      for(var i = 0; i < eventNames.length; i++) {
+        window.removeEventListener(eventNames[i], setBannerDataEvent as EventListener);
+      }
     }
   }, []);
 
-  return bannerData.event?.description ? (
+  return bannerData?.event?.description ? (
     <div className="bg-green-400 fixed bottom-0 w-screen z-10">
       <div className="mx-auto max-w-7xl py-3 px-3 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center justify-between">
@@ -36,7 +49,10 @@ export const Banner: React.FC = () => {
             <button
               type="button"
               className="-mr-1 flex rounded-md p-2 ring-2 ring-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
-              onClick={() => setBannerData({})}
+              onClick={() => setBannerData({event: {
+                description: "",
+                shortDescription: ""
+              }})}
             >
               <span className="sr-only">Dismiss</span>
               <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />

@@ -20,12 +20,13 @@ export const UserPokemons = () => {
           <Loader />
         </div>
       )}
-      <div className="grid gap-4 grid-cols-2 grid-rows-2">
+      <div id="UserPokemons" className="grid gap-4 grid-cols-2 grid-rows-2">
         {pokemons &&
           pokemons.map((pokemon, index) => {
             return (
               <PokeForm
                 key={`${index}-${pokemon.species}`}
+                id={`PokeForm-${pokemon.species}-${index}`}
                 pokemonUrl={pokemon.sprite}
                 pokemonBlingUrl={pokemon.shinySprite}
                 species={`${pokemon.species.charAt(0).toUpperCase()}${pokemon.species.slice(1)}`}

@@ -1,6 +1,7 @@
 import React from "react";
 
 type CardProps = {
+  id: string,
   imageUrl?: string;
   imageAlt?: string;
   header: string;
@@ -12,6 +13,7 @@ type CardProps = {
 };
 
 export const CardComponent: React.FC<CardProps> = ({
+  id,
   imageUrl,
   imageAlt,
   header,
@@ -23,7 +25,7 @@ export const CardComponent: React.FC<CardProps> = ({
 }) => {
   const isBlur = blur ? "blur-sm" : "";
   return (
-    <div className={"card w-96 bg-base-100 shadow-xl" + isBlur}>
+    <div id={id} className={"card w-96 bg-base-100 shadow-xl" + isBlur}>
       {imageUrl && (
         <figure className="mt-4">
           <img src={imageUrl} alt={imageAlt} />

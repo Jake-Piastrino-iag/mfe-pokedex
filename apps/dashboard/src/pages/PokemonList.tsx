@@ -25,12 +25,13 @@ export const PokemonList = () => {
           <Loader />
         </div>
       )}
-      <div className="grid grid-cols-1 grid-rows-1 gap-4 my-8 md:grid-cols-2 md:grid-rows-2 lg:grid-cols-3 lg:grid-rows-3">
+      <div id="PokemonList" className="grid grid-cols-1 grid-rows-1 gap-4 my-8 md:grid-cols-2 md:grid-rows-2 lg:grid-cols-3 lg:grid-rows-3">
         {!loading &&
           Object.entries(data).map(([key, value]) => {
             return (
               <Card
                 key={key}
+                id={`Card-${key}`}
                 imageUrl={value.sprite}
                 imageAlt={value.species}
                 header={`${value.species.charAt(0).toUpperCase()}${value.species.slice(1)}`}
