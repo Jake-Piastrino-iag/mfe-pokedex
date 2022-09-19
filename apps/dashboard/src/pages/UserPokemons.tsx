@@ -5,15 +5,12 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext/UserContext";
 import { Layout } from "./Layout";
 import { Loader } from "../components/loader/Loader";
+import { getParentIds } from "../../../../packages/mfe-ui-components/src/utils/getParentIds";
 
-interface UserPokemonsProps {
-  ancestors: string[];
-}
-
-export const UserPokemons: React.FC<UserPokemonsProps> = (props: UserPokemonsProps) => {
+export const UserPokemons = () => {
   const { pokemons, setPokemons } = useContext(UserContext);
 
-  const onTradeHandler = (ev: React.MouseEvent<HTMLButtonElement>, species: string) => {
+  const onTradeHandler = (ev: React.MouseEvent<HTMLButtonElement, MouseEvent>, species: string) => {
     setPokemons(pokemons.filter((pokemon) => pokemon.species !== species));
 
     const event = new CustomEvent('UserPokemons:tradePokemon', {
@@ -21,7 +18,7 @@ export const UserPokemons: React.FC<UserPokemonsProps> = (props: UserPokemonsPro
       detail: {
         moduleName: "UserPokemons:tradePokemonButton",
         event: {
-          ancestors: props.ancestors,
+          ancestors: getParentIds(ev.target as Node),
           action: "click",
           shortDescription: `${species.charAt(0).toUpperCase()}${species.slice(1)} traded.`,
           description: `You traded a pokemon! ${species.charAt(0).toUpperCase()}${species.slice(1)} has been removed from your bag.`
@@ -39,12 +36,13 @@ export const UserPokemons: React.FC<UserPokemonsProps> = (props: UserPokemonsPro
           <Loader />
         </div>
       )}
-      <div className="grid gap-4 grid-cols-2 grid-rows-2">
+      <div id="UserPokemons" className="grid gap-4 grid-cols-2 grid-rows-2">
         {pokemons &&
           pokemons.map((pokemon, index) => {
             return (
               <PokeForm
                 key={`${index}-${pokemon.species}`}
+                id={`PokeForm-${pokemon.species}-${index}`}
                 pokemonUrl={pokemon.sprite}
                 pokemonBlingUrl={pokemon.shinySprite}
                 species={`${pokemon.species.charAt(0).toUpperCase()}${pokemon.species.slice(1)}`}
