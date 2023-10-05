@@ -6,9 +6,11 @@ import { UserContext } from "../context/UserContext/UserContext";
 import { Layout } from "./Layout";
 import { Loader } from "../components/loader/Loader";
 import { getParentIds } from "../../../../packages/mfe-ui-components/src/utils/getParentIds";
+import { useNavigate } from "react-router-dom";
 
 export const UserPokemons = () => {
   const { pokemons, setPokemons } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const onTradeHandler = (ev: React.MouseEvent<HTMLButtonElement, MouseEvent>, species: string) => {
     setPokemons(pokemons.filter((pokemon) => pokemon.species !== species));
@@ -29,6 +31,10 @@ export const UserPokemons = () => {
     ev.target.dispatchEvent(event);
   };
 
+  const onSelectHomeHandler = () => {
+    navigate("/dashboard");
+  };
+
   return (
     <Layout>
       {!pokemons && (
@@ -36,8 +42,8 @@ export const UserPokemons = () => {
           <Loader />
         </div>
       )}
-      <div id="UserPokemons" className="grid gap-4 grid-cols-2 grid-rows-2">
-        {pokemons &&
+      <div id="UserPokemons" className={pokemons.length > 0 ? "grid gap-4 grid-cols-2 grid-rows-2" : "m-8 flex content-center justify-center"}>
+        {pokemons.length > 0 ?
           pokemons.map((pokemon, index) => {
             return (
               <PokeForm
@@ -50,7 +56,12 @@ export const UserPokemons = () => {
                 onActionHandler={(ev: React.MouseEvent<HTMLButtonElement>) => onTradeHandler(ev, pokemon.species)}
               />
             );
-          })}
+          }) : (
+            <div>
+              <h1 className="h1 text-center mb-8">Your bag is empty</h1>
+              <button className="btn btn-primary" onClick={onSelectHomeHandler}>Click here to go back to the dashboard</button>
+            </div>
+          )}
       </div>
     </Layout>
   );
