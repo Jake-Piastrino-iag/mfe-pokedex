@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 // Instantiate required constructor fields
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: "https://graphqlpokemon.favware.tech/"
+  uri: "https://graphqlpokemon.favware.tech/v7"
 });
 
 export const client = new ApolloClient({

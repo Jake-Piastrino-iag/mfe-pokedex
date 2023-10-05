@@ -6,8 +6,8 @@ const query = PokemonList.map(
     `${pokemon.toLowerCase()}:getPokemon(pokemon: ${pokemon.toLowerCase()} reverseFlavorTexts: true takeFlavorTexts: 1) {
 		num
 		species
-		types
-		abilities { first second hidden }
+		types { name }
+		abilities { first { name } hidden { name } second { name } }
 		baseStats { hp attack defense specialattack specialdefense speed }
 		gender { male female }
 		height

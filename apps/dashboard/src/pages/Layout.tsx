@@ -37,7 +37,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           <div className={`${showFederatedComponents ? "border-solid border-2 border-rose-500 my-2" : ""}`}>
             <AppContainer>{children}</AppContainer>
           </div>
-          <AppFooter footerText="Shaarang Tanpure @FSO-DET EY" footerHelperText="A demo app">
+          <AppFooter footerText="Pokedex trading" footerHelperText="A demo app">
             <div className="form-control">
               <label className="label cursor-pointer">
                 <h4 className="label-text mr-4">Show federated components</h4>
