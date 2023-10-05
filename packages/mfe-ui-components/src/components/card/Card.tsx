@@ -1,15 +1,11 @@
 import React from "react";
 
-type BadgeProps = {
-  name: string;
-}
-
 type CardProps = {
   imageUrl?: string;
   imageAlt?: string;
   header: string;
   body: React.ReactNode;
-  badge?: BadgeProps[];
+  badge?: string[];
   actionText: string;
   blur?: boolean;
   onActionHandler(e: React.MouseEvent<HTMLButtonElement>): void;
@@ -36,7 +32,7 @@ export const CardComponent: React.FC<CardProps> = ({
       <div className="card-body items-center text-center">
         <h2 className="card-title">
           {header}
-          {badge && badge.map((option) => <div key={option.name} className="badge badge-secondary">{option.name}</div>)}
+          {badge && badge.map((option) => <div key={option} className="badge badge-secondary">{option}</div>)}
         </h2>
         {body && body}
         <div className="card-actions">
